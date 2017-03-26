@@ -5,7 +5,8 @@ import se.nackademin.gui.FortuneTellerGui;
 public class FortuneTeller {
     MagicNumbers magicNumbers;
     FortuneTellerGui fortuneTellerGui;
-
+    Translator translator;
+    
     /*
      * Returns a fortune based on name, income, location, age and height
      *
@@ -17,8 +18,41 @@ public class FortuneTeller {
      *
      */
     public String calculate() {
-        //TODO: Implement
-        return "Not implemented!";
+    
+        
+        int A = magicNumbers.calculateA(); 
+        int B = magicNumbers.calculateB();
+        int C = magicNumbers.calculateC(A, B);
+        int D = magicNumbers.calculateD(A, B, C);
+        int E = magicNumbers.calculateE();
+                
+              
+        
+        String adjA = translator.wordReturn("adj",A);
+        String verbB = translator.wordReturn("verb",B);
+        String subC = translator.wordReturn("sub",C);
+        String verbD = translator.wordReturn("verb",D);
+        String adjE = translator.wordReturn("adj",E);
+           
+               
+        
+        String fortune = "Din framtid är "
+                + adjA
+                + ". Du borde sluta "
+                + verbB
+                + ". Vi ser att du snart "
+                + "kommer att skaffa "
+                + subC
+                + ". Snart kommer du vilja "
+                + verbD
+                + ", "
+                + "men då är det viktigt att du är "
+                + adjE
+                + ".";
+        
+        
+        
+        return fortune;
     }
 
     public static void main(String[] args) {
@@ -28,6 +62,7 @@ public class FortuneTeller {
     FortuneTeller() {
         fortuneTellerGui = new FortuneTellerGui(this);
         magicNumbers = new MagicNumbers();
+        translator = new Translator(); 
 
     }
 

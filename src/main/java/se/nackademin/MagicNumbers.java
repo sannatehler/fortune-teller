@@ -1,5 +1,7 @@
 package se.nackademin;
 
+import static java.lang.Math.E;
+
 public class MagicNumbers {
 
     private String name;
@@ -7,30 +9,96 @@ public class MagicNumbers {
     private String location;
     private int age;
     private int height;
+    private int A;
+    private int B;
+    private int C; 
 
     public int calculateA() {
         //TODO: calculate A
-        return 0;
+        int A = 1;
+        
+        int x = name.length();
+        String name2 = name.replace(" ","");
+        int y = name2.length();
+        
+        int z = x - y;
+        A = A + z;
+        //for (char x : name) 
+        //{   
+        //    if( x == 32 ) {
+        //        A = A + 1;
+        //    }                
+        //}               
+        
+        A = A + age;
+                
+        while(A > 9) {
+            A = A -7;
+        }                
+
+        return A;
     }
 
     public int calculateB() {
         //TODO: calculate B
-        return 0;
+        
+        int B = location.length();
+        B = B + income;
+        while(B > 9){
+               B = B - 7 ;
+        }        
+        
+        
+    
+        return B;
     }
 
     public int calculateC() {
         //TODO: calculate C
-        return 0;
+        
+        
+        int C = A + B;
+        C = C - height;        
+        while(C < 0){
+            C = C + 10;
+        }
+        
+        
+        
+        
+        return C;
     }
 
     public int calculateD() {
         //TODO: calculate D
-        return 0;
+        int D;
+        
+        if(A > 5){
+            D = A + B;
+        }else{
+            D = A + C;
+        }  
+        
+        D = D - income;
+        
+        while(D < 0){
+            D = D + 10;
+        }
+        return D;
     }
 
     public int calculateE() {
         //TODO: calculate E
-        return 0;
+        
+        double E = age*income*income*income*height; 
+        
+        E = Math.sqrt(E);
+        
+        while(E >= 10){
+            E = E/2;
+        }
+        return (int) Math.round(E);
+                
     }
 
     public void setName(String name) {
