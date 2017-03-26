@@ -14,24 +14,10 @@ public class MagicNumbers {
     private int C; 
 
     public int calculateA() {
-        //TODO: calculate A
-        int A = 1;
         
-        int x = name.length();
         String name2 = name.replace(" ","");
-        int y = name2.length();
-        
-        int z = x - y;
-        A = A + z;
-        //for (char x : name) 
-        //{   
-        //    if( x == 32 ) {
-        //        A = A + 1;
-        //    }                
-        //}               
-        
-        A = A + age;
-                
+        int A = 1 + name.length() - name2.length() + age;
+
         while(A > 9) {
             A = A -7;
         }                
@@ -42,24 +28,21 @@ public class MagicNumbers {
     public int calculateB() {
         //TODO: calculate B
         
-        int B = location.length();
-        B = B + income;
+        int B = location.length() + income;
+        
         while(B > 9){
                B = B - 7 ;
-        }        
-        
-        
+        }
         
         return B;
     }
 
     public int calculateC() {
         //TODO: calculate C
-        A = calculateA();
-        B = calculateB();
         
-        int C = A + B;
+        int C = calculateA() + calculateB();
         C = C - height;        
+        
         while(C < 0){
             C = C + 10;
         }
