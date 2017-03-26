@@ -49,30 +49,32 @@ public class MagicNumbers {
         }        
         
         
-    
+        
         return B;
     }
 
     public int calculateC() {
         //TODO: calculate C
-        
+        A = calculateA();
+        B = calculateB();
         
         int C = A + B;
         C = C - height;        
         while(C < 0){
             C = C + 10;
         }
-        
-        
-        
-        
+    
         return C;
     }
 
     public int calculateD() {
         //TODO: calculate D
-        int D;
+        A = calculateA();
+        B = calculateB();
+        C = calculateC();
         
+        int D;
+      
         if(A > 5){
             D = A + B;
         }else{
@@ -90,14 +92,22 @@ public class MagicNumbers {
     public int calculateE() {
         //TODO: calculate E
         
-        double E = age*income*income*income*height; 
+        double E = age*income*income*height; 
         
         E = Math.sqrt(E);
         
         while(E >= 10){
             E = E/2;
+            System.out.println(E);
         }
-        return (int) Math.round(E);
+        
+        if (E > 9) {
+            E = 9;
+        }
+        
+        E = Math.round(E);
+        
+        return (int) E;
                 
     }
 

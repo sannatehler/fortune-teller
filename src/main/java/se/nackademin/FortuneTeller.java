@@ -22,8 +22,8 @@ public class FortuneTeller {
         
         int A = magicNumbers.calculateA(); 
         int B = magicNumbers.calculateB();
-        int C = magicNumbers.calculateC(A, B);
-        int D = magicNumbers.calculateD(A, B, C);
+        int C = magicNumbers.calculateC();
+        int D = magicNumbers.calculateD();
         int E = magicNumbers.calculateE();
                 
               
